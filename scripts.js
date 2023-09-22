@@ -11,6 +11,7 @@ function load() {
   const statuss = document.querySelector("#flightStatus");
   const screen = document.querySelector("#shuttleBackground");
   const height = document.querySelector("#spaceShuttleHeight");
+  const rocket = document.querySelector("#rocket");
 
   takeOff.addEventListener("click", () => {
     let isReady = window.confirm(
@@ -46,6 +47,33 @@ function load() {
       screen.style.backgroundColor = "green";
       height, (innerHTML = "0");
     }
+  });
+  //   When the "Up", "Down", "Right", and "Left" buttons are clicked, the following should happen:
+
+  // The rocket image should move 10 px in the direction of the button that was clicked.
+
+  // If the "Up" or "Down" buttons were clicked, then the shuttle height should increase or decrease by 10,000 miles.
+  up.addEventListener("click", () => {
+    // screen.style.position = "relative";
+    rocket.style.paddingBottom += "10px";
+    let moveUp = Number(height.innerHTML);
+    moveUp += 10000;
+    height.innerHTML = moveUp;
+  });
+  down.addEventListener("click", () => {
+    screen.style.position = "relative";
+    rocket.style.paddingTop += "10px";
+    let moveDown = Number(height.innerHTML);
+    moveDown -= Number("10000");
+    height.innerHTML = moveDown;
+  });
+  left.addEventListener("click", () => {
+    screen.style.position = "relative";
+    rocket.style.marginRight += "10px";
+  });
+  right.addEventListener("click", () => {
+    screen.style.position = "relative";
+    rocket.style.marginLeft += "10px";
   });
 }
 
